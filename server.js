@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 //Database connection
 mongoose
-  .connect(process.env.mongo_uri)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Database connected");
   })
@@ -114,7 +114,7 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 //start the server
-const PORT = 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port:${PORT}`);
 });
